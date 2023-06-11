@@ -1,0 +1,1481 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/9/2023 10:50:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NGUYENTHANHDONG"
+  DTS:CreatorName="NGUYENTHANHDONG\ACER"
+  DTS:DTSID="{EC75DDEE-A697-4712-9FBF-0ED3264E23A9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{5E3A5757-CEBB-494F-9981-FF12483F0F94}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF - Load from Source to DimDate"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3E417749-B7B5-4B6A-A598-95760DA0E13A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load from Source to DimDate"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Load from Source to DimDate\DST – DimDate"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST – DimDate"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Source to DimDate\DST – DimDate.Connections[OleDbConnection]"
+                  connectionManagerID="{999381ED-ED90-4B26-9BF0-84AD37A7BEF0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.Adventureworks2019DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[FullDate]"
+                      cachedDataType="dbDate"
+                      cachedName="FullDate"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[FullDate]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[DayName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="DayName"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayName]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayName]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[DayNumberOfWeek]"
+                      cachedDataType="i4"
+                      cachedName="DayNumberOfWeek"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfWeek]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfWeek]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[DayNumberOfMonth]"
+                      cachedDataType="i4"
+                      cachedName="DayNumberOfMonth"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfMonth]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfMonth]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[DayNumberOfYear]"
+                      cachedDataType="i4"
+                      cachedName="DayNumberOfYear"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfYear]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[WeekNumberOfYear]"
+                      cachedDataType="i4"
+                      cachedName="WeekNumberOfYear"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[WeekNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[WeekNumberOfYear]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[MonthName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="MonthName"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[MonthNumberOfYear]"
+                      cachedDataType="i4"
+                      cachedName="MonthNumberOfYear"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[Quarter]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Quarter"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[QuarterName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="QuarterName"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[QuarterName]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[Year]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
+                      dataType="dbDate"
+                      name="FullDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayName]"
+                      dataType="wstr"
+                      length="30"
+                      name="DayName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfWeek]"
+                      dataType="i4"
+                      name="DayNumberOfWeek" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfMonth]"
+                      dataType="i4"
+                      name="DayNumberOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfYear]"
+                      dataType="i4"
+                      name="DayNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[WeekNumberOfYear]"
+                      dataType="i4"
+                      name="WeekNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      dataType="wstr"
+                      length="30"
+                      name="MonthName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumberOfYear]"
+                      dataType="i4"
+                      name="MonthNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="QuarterName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Source to DimDate\DST – DimDate.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\DST – DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\DST – DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\DST – DimDate.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC – AdventureWorks2019Sourcesv_date_dimension"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    CONVERT(int,CONVERT(varchar,orderdate,112)) AS DateKey,
+    CONVERT(date,orderdate) AS FullDate,
+    DATENAME(dw, orderdate) AS DayName,
+    DATEPART(dw,orderdate) AS DayNumberOfWeek,
+    DATEPART(d,orderdate) AS DayNumberOfMonth,
+    DATEPART(dy,orderdate) AS DayNumberOfYear,
+    DATEPART(wk, orderdate) AS WeekNumberOfYear,
+    DATENAME(month, orderdate) AS MonthName,
+    MONTH(orderdate) AS MonthNumberOfYear,
+    CASE 
+        WHEN MONTH(orderdate) BETWEEN 1 AND 3 THEN 'Q1'
+        WHEN MONTH(orderdate) BETWEEN 4 AND 6 THEN 'Q2'
+        WHEN MONTH(orderdate) BETWEEN 7 AND 9 THEN 'Q3'
+        ELSE 'Q4'
+    END AS Quarter,
+    CASE 
+        WHEN MONTH(orderdate) BETWEEN 1 AND 3 THEN 'First Quarter'
+        WHEN MONTH(orderdate) BETWEEN 4 AND 6 THEN 'Second Quarter'
+        WHEN MONTH(orderdate) BETWEEN 7 AND 9 THEN 'Third Quarter'
+        ELSE 'Fourth Quarter'
+    END AS QuarterName,
+    YEAR(orderdate) AS Year
+
+FROM AdventureWorks2019.Sales.SalesOrderHeader</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Connections[OleDbConnection]"
+                  connectionManagerID="{B5E71BB1-63CD-40FD-864B-E586EC22CBD4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[FullDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDate]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[FullDate]"
+                      name="FullDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayName]"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayName]"
+                      name="DayName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfWeek]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfWeek]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfWeek]"
+                      name="DayNumberOfWeek"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfMonth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfMonth]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfMonth]"
+                      name="DayNumberOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfYear]"
+                      name="DayNumberOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[WeekNumberOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[WeekNumberOfYear]"
+                      name="WeekNumberOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]"
+                      name="MonthName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]"
+                      name="MonthNumberOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                      length="2"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]"
+                      name="Quarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[QuarterName]"
+                      length="14"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]"
+                      name="QuarterName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDate]"
+                      dataType="dbDate"
+                      name="FullDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayName]"
+                      dataType="wstr"
+                      length="30"
+                      name="DayName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfWeek]"
+                      dataType="i4"
+                      name="DayNumberOfWeek" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfMonth]"
+                      dataType="i4"
+                      name="DayNumberOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfYear]"
+                      dataType="i4"
+                      name="DayNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekNumberOfYear]"
+                      dataType="i4"
+                      name="WeekNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                      dataType="wstr"
+                      length="30"
+                      name="MonthName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthNumberOfYear]"
+                      dataType="i4"
+                      name="MonthNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="QuarterName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDate]"
+                      name="FullDate" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayName]"
+                      name="DayName" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfWeek]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfWeek]"
+                      name="DayNumberOfWeek" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfMonth]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfMonth]"
+                      name="DayNumberOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfYear]"
+                      name="DayNumberOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekNumberOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekNumberOfYear]"
+                      name="WeekNumberOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                      name="MonthName" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthNumberOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthNumberOfYear]"
+                      name="MonthNumberOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                      name="Quarter" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[QuarterName]"
+                      name="QuarterName" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Load from Source to DimDate.Paths[OLE DB Source Output]"
+              endId="Package\DF - Load from Source to DimDate\DST – DimDate.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Load from Source to DimDatePurchasing"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7E4EFABD-E3D4-4887-AB6A-114B7EEBC6E2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load from Source to DimDatePurchasing"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - DimDatePurchasing"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimDatePurchasing]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Connections[OleDbConnection]"
+                  connectionManagerID="{999381ED-ED90-4B26-9BF0-84AD37A7BEF0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.Adventureworks2019DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[FullDate]"
+                      cachedDataType="dbDate"
+                      cachedName="FullDate"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[FullDate]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[DayName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="DayName"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayName]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayName]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[DayNumberOfWeek]"
+                      cachedDataType="i4"
+                      cachedName="DayNumberOfWeek"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfWeek]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfWeek]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[DayNumberOfMonth]"
+                      cachedDataType="i4"
+                      cachedName="DayNumberOfMonth"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfMonth]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfMonth]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[DayNumberOfYear]"
+                      cachedDataType="i4"
+                      cachedName="DayNumberOfYear"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfYear]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[WeekNumberOfYear]"
+                      cachedDataType="i4"
+                      cachedName="WeekNumberOfYear"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[WeekNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[WeekNumberOfYear]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[MonthName]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="MonthName"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[MonthNumberOfYear]"
+                      cachedDataType="i4"
+                      cachedName="MonthNumberOfYear"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[Quarter]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Quarter"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[QuarterName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="QuarterName"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[QuarterName]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[Year]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[FullDate]"
+                      dataType="dbDate"
+                      name="FullDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayName]"
+                      dataType="wstr"
+                      length="30"
+                      name="DayName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfWeek]"
+                      dataType="i4"
+                      name="DayNumberOfWeek" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfMonth]"
+                      dataType="i4"
+                      name="DayNumberOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DayNumberOfYear]"
+                      dataType="i4"
+                      name="DayNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[WeekNumberOfYear]"
+                      dataType="i4"
+                      name="WeekNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                      dataType="wstr"
+                      length="30"
+                      name="MonthName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[MonthNumberOfYear]"
+                      dataType="i4"
+                      name="MonthNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="QuarterName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC - AdventureWorks2019_date_dimension"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT
+    CONVERT(int,CONVERT(varchar,orderdate,112)) AS DateKey,
+    CONVERT(date,orderdate) AS FullDate,
+    DATENAME(dw, orderdate) AS DayName,
+    DATEPART(dw,orderdate) AS DayNumberOfWeek,
+    DATEPART(d,orderdate) AS DayNumberOfMonth,
+    DATEPART(dy,orderdate) AS DayNumberOfYear,
+    DATEPART(wk, orderdate) AS WeekNumberOfYear,
+    DATENAME(month, orderdate) AS MonthName,
+    MONTH(orderdate) AS MonthNumberOfYear,
+    CASE 
+        WHEN MONTH(orderdate) BETWEEN 1 AND 3 THEN 'Q1'
+        WHEN MONTH(orderdate) BETWEEN 4 AND 6 THEN 'Q2'
+        WHEN MONTH(orderdate) BETWEEN 7 AND 9 THEN 'Q3'
+        ELSE 'Q4'
+    END AS Quarter,
+    CASE 
+        WHEN MONTH(orderdate) BETWEEN 1 AND 3 THEN 'First Quarter'
+        WHEN MONTH(orderdate) BETWEEN 4 AND 6 THEN 'Second Quarter'
+        WHEN MONTH(orderdate) BETWEEN 7 AND 9 THEN 'Third Quarter'
+        ELSE 'Fourth Quarter'
+    END AS QuarterName,
+    YEAR(orderdate) AS Year
+from AdventureWorks2019.Purchasing.PurchaseOrderHeader;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Connections[OleDbConnection]"
+                  connectionManagerID="{B5E71BB1-63CD-40FD-864B-E586EC22CBD4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[FullDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDate]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[FullDate]"
+                      name="FullDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayName]"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayName]"
+                      name="DayName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfWeek]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfWeek]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfWeek]"
+                      name="DayNumberOfWeek"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfMonth]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfMonth]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfMonth]"
+                      name="DayNumberOfMonth"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[DayNumberOfYear]"
+                      name="DayNumberOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[WeekNumberOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[WeekNumberOfYear]"
+                      name="WeekNumberOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[MonthName]"
+                      name="MonthName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthNumberOfYear]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[MonthNumberOfYear]"
+                      name="MonthNumberOfYear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                      length="2"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[Quarter]"
+                      name="Quarter"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[QuarterName]"
+                      length="14"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[QuarterName]"
+                      name="QuarterName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[FullDate]"
+                      dataType="dbDate"
+                      name="FullDate" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayName]"
+                      dataType="wstr"
+                      length="30"
+                      name="DayName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfWeek]"
+                      dataType="i4"
+                      name="DayNumberOfWeek" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfMonth]"
+                      dataType="i4"
+                      name="DayNumberOfMonth" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[DayNumberOfYear]"
+                      dataType="i4"
+                      name="DayNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[WeekNumberOfYear]"
+                      dataType="i4"
+                      name="WeekNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                      dataType="wstr"
+                      length="30"
+                      name="MonthName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[MonthNumberOfYear]"
+                      dataType="i4"
+                      name="MonthNumberOfYear" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Quarter" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      name="QuarterName" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDate]"
+                      dataType="dbDate"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[FullDate]"
+                      name="FullDate" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayName]"
+                      name="DayName" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfWeek]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfWeek]"
+                      name="DayNumberOfWeek" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfMonth]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfMonth]"
+                      name="DayNumberOfMonth" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[DayNumberOfYear]"
+                      name="DayNumberOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekNumberOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[WeekNumberOfYear]"
+                      name="WeekNumberOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                      name="MonthName" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthNumberOfYear]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[MonthNumberOfYear]"
+                      name="MonthNumberOfYear" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                      name="Quarter" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[QuarterName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="14"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[QuarterName]"
+                      name="QuarterName" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[Year]"
+                      name="Year" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Load from Source to DimDatePurchasing.Paths[OLE DB Source Output]"
+              endId="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate DimDate Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{53D069B3-E9FA-485B-B020-EE49802CDBC9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate DimDate Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{999381ED-ED90-4B26-9BF0-84AD37A7BEF0}"
+          SQLTask:SqlStatementSource="Truncate table DimDate;&#xA;Truncate table DimDatePurchasing;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4997D21B-3D31-47B2-843F-C14EC4864863}"
+      DTS:From="Package\SQL - Truncate DimDate Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF - Load from Source to DimDate" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{670D3E1C-A515-4B89-9D5D-3019E2265758}"
+      DTS:From="Package\SQL - Truncate DimDate Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF - Load from Source to DimDatePurchasing" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="241.6,41.6"
+          Id="Package\DF - Load from Source to DimDate"
+          TopLeft="111.928572730142,127.264707169319" />
+        <NodeLayout
+          Size="292.8,41.6"
+          Id="Package\DF - Load from Source to DimDatePurchasing"
+          TopLeft="410.714292708709,123.117648785502" />
+        <NodeLayout
+          Size="222.4,41.6"
+          Id="Package\SQL - Truncate DimDate Table"
+          TopLeft="282.642861862572,38.3823534023391" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="358.109528529239,79.9823534023391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.380955799096,47.2823537669795"
+              Start="0,0"
+              End="-125.380955799096,39.7823537669795">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.1155801657932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.1155801657932"
+                    Point2="0,19.1155801657932"
+                    Point3="-4,19.1155801657932" />
+                  <mssgle:LineSegment
+                    End="-121.380955799096,19.1155801657932" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-121.380955799096,19.1155801657932"
+                    Point2="-125.380955799096,19.1155801657932"
+                    Point3="-125.380955799096,23.1155801657932" />
+                  <mssgle:LineSegment
+                    End="-125.380955799096,39.7823537669795" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="429.576195195905,79.9823534023391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="127.538097512804,43.1352953831633"
+              Start="0,0"
+              End="127.538097512804,35.6352953831633">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4389837049074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4389837049074"
+                    Point2="0,17.4389837049074"
+                    Point3="4,17.4389837049074" />
+                  <mssgle:LineSegment
+                    End="123.538097512804,17.4389837049074" />
+                  <mssgle:CubicBezierSegment
+                    Point1="123.538097512804,17.4389837049074"
+                    Point2="127.538097512804,17.4389837049074"
+                    Point3="127.538097512804,21.4389837049074" />
+                  <mssgle:LineSegment
+                    End="127.538097512804,35.6352953831633" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF - Load from Source to DimDate">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\DF - Load from Source to DimDate\DST – DimDate"
+          TopLeft="465.833341337386,148.610519743921" />
+        <NodeLayout
+          Size="332.8,41.6"
+          Id="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension"
+          TopLeft="377.857149292012,73.4117657354546" />
+        <EdgeLayout
+          Id="Package\DF - Load from Source to DimDate.Paths[OLE DB Source Output]"
+          TopLeft="542.845245314699,115.011765735455">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5987540084662"
+              Start="0,0"
+              End="0,26.0987540084662">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0987540084662" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Source to DimDate\DST – DimDate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Source to DimDate\SRC – AdventureWorks2019Sourcesv_date_dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Load from Source to DimDatePurchasing">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,41.6"
+          Id="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing"
+          TopLeft="459.389610450432,135.588234446865" />
+        <NodeLayout
+          Size="299.2,48"
+          Id="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension"
+          TopLeft="405,54.0000000000001" />
+        <EdgeLayout
+          Id="Package\DF - Load from Source to DimDatePurchasing.Paths[OLE DB Source Output]"
+          TopLeft="556.994805225216,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5882344468654"
+              Start="0,0"
+              End="0,26.0882344468654">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0882344468654" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Source to DimDatePurchasing\DST - DimDatePurchasing">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Source to DimDatePurchasing\SRC - AdventureWorks2019_date_dimension">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

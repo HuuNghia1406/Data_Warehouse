@@ -1,0 +1,1459 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/14/2023 11:26:36 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NGUYENTHANHDONG"
+  DTS:CreatorName="NGUYENTHANHDONG\ACER"
+  DTS:DTSID="{A9CED4F9-35F2-499A-80EE-C6707236E1E8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{3D26E5D1-AE5B-4664-B61B-C20B4C052388}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DF - Load from Dimensions to FactPurchasing"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{16A537BF-98FB-4E85-A3A2-6BC6E5722EA6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load from Dimensions to FactPurchasing"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - FactPurchasing"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactPurchasing]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Connections[OleDbConnection]"
+                  connectionManagerID="{999381ED-ED90-4B26-9BF0-84AD37A7BEF0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.Adventureworks2019DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[ShipKey]"
+                      cachedDataType="i4"
+                      cachedName="ShipKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ShipKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ShipKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[ProductCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductCategoryKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductCategoryKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[ProductSubcategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductSubcategoryKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductSubcategoryKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[VendorKey]"
+                      cachedDataType="i4"
+                      cachedName="VendorKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[VendorKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[VendorKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[EmployeeKey]"
+                      cachedDataType="i4"
+                      cachedName="EmployeeKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[EmployeeKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[ReceivedQty]"
+                      cachedDataType="numeric"
+                      cachedName="ReceivedQty"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ReceivedQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ReceivedQty]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[RejectedQty]"
+                      cachedDataType="numeric"
+                      cachedName="RejectedQty"
+                      cachedPrecision="8"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[RejectedQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[RejectedQty]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[StockedQty]"
+                      cachedDataType="numeric"
+                      cachedName="StockedQty"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[StockedQty]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[OrderQty]"
+                      cachedDataType="i2"
+                      cachedName="OrderQty"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[OrderQty]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].Columns[TotalDue]"
+                      cachedDataType="cy"
+                      cachedName="TotalDue"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TotalDue]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[PurchasingKey]"
+                      dataType="i4"
+                      name="PurchasingKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ShipKey]"
+                      dataType="i4"
+                      name="ShipKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[VendorKey]"
+                      dataType="i4"
+                      name="VendorKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeKey]"
+                      dataType="i4"
+                      name="EmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[ReceivedQty]"
+                      dataType="i4"
+                      name="ReceivedQty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[RejectedQty]"
+                      dataType="i4"
+                      name="RejectedQty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[StockedQty]"
+                      dataType="i4"
+                      name="StockedQty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[OrderQty]"
+                      dataType="i4"
+                      name="OrderQty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC – Dimensions Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT D.DateKey,
+	S.ShipKey as ShipKey,
+	P.ProductKey as ProductKey,
+	PC.ProductCategoryKey as ProductCategoryKey,
+	PSC.ProductSubcategoryKey as ProductSubcategoryKey,
+	V.VendorKey as VendorKey,
+	E.EmployeeKey as EmployeeKey,
+	PD.UnitPrice as UnitPrice,
+	PD.ReceivedQty,
+	PD.RejectedQty,
+	PD.StockedQty,
+	PD.OrderQty,
+	(PD.StockedQty*PD.UnitPrice) as TotalDue
+FROM AdventureWorks2019.Purchasing.PurchaseOrderHeader PH 
+	LEFT JOIN AdventureWorks2019.Purchasing.PurchaseOrderDetail PD
+	ON PH.PurchaseOrderID = PD.PurchaseOrderID
+	LEFT JOIN AdventureWorks2019DW.dbo.DimProduct P ON P.ProductID = PD.ProductID
+	LEFT JOIN AdventureWorks2019DW.dbo.DimProductSubCategory PSC ON PSC.ProductSubCategoryID = P.ProductSubCategoryID
+	LEFT JOIN AdventureWorks2019DW.dbo.DimShip S ON S.ShipMethodID = PH.ShipMethodID
+	LEFT JOIN AdventureWorks2019DW.dbo.DimDatePurchasing D ON D.DateKey = CONVERT(INT,CONVERT(VARCHAR,PH.OrderDate,112))
+	LEFT JOIN AdventureWorks2019DW.dbo.DimVendor V ON V.VendorID = PH.VendorID
+	LEFT JOIN AdventureWorks2019DW.dbo.DimEmployee E ON E.EmployeeID = PH.EmployeeID
+	LEFT JOIN AdventureWorks2019DW.dbo.DimProductCategory PC ON PC.ProductCategoryID = P.ProductCategoryID;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Connections[OleDbConnection]"
+                  connectionManagerID="{B5E71BB1-63CD-40FD-864B-E586EC22CBD4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ShipKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ShipKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ShipKey]"
+                      name="ShipKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductSubcategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      name="TotalDue"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[VendorKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[VendorKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[VendorKey]"
+                      name="VendorKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[EmployeeKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[EmployeeKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[EmployeeKey]"
+                      name="EmployeeKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ReceivedQty]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ReceivedQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ReceivedQty]"
+                      name="ReceivedQty"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[RejectedQty]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[RejectedQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[RejectedQty]"
+                      name="RejectedQty"
+                      precision="8"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[StockedQty]"
+                      name="StockedQty"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                      name="OrderQty"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ShipKey]"
+                      dataType="i4"
+                      name="ShipKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                      dataType="numeric"
+                      name="TotalDue"
+                      precision="29"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[VendorKey]"
+                      dataType="i4"
+                      name="VendorKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[EmployeeKey]"
+                      dataType="i4"
+                      name="EmployeeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ReceivedQty]"
+                      dataType="numeric"
+                      name="ReceivedQty"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[RejectedQty]"
+                      dataType="numeric"
+                      name="RejectedQty"
+                      precision="8"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[StockedQty]"
+                      dataType="numeric"
+                      name="StockedQty"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                      dataType="i2"
+                      name="OrderQty" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ShipKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ShipKey]"
+                      name="ShipKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                      name="ProductKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[VendorKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[VendorKey]"
+                      name="VendorKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[EmployeeKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[EmployeeKey]"
+                      name="EmployeeKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ReceivedQty]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ReceivedQty]"
+                      name="ReceivedQty"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[RejectedQty]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[RejectedQty]"
+                      name="RejectedQty"
+                      precision="8"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[StockedQty]"
+                      name="StockedQty"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                      dataType="i2"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                      name="OrderQty" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      dataType="numeric"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      name="TotalDue"
+                      precision="29"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Load from Dimensions to FactPurchasing.Paths[OLE DB Source Output]"
+              endId="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DF - Load from Dimensions to FactSale"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{6B02A66D-7DDE-4BED-BB03-FE5B390AADC3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DF - Load from Dimensions to FactSale"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DST - FactSale"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactSale]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Connections[OleDbConnection]"
+                  connectionManagerID="{999381ED-ED90-4B26-9BF0-84AD37A7BEF0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.Adventureworks2019DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[CustomerKey]"
+                      cachedDataType="i4"
+                      cachedName="CustomerKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[CustomerKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[ShipKey]"
+                      cachedDataType="i4"
+                      cachedName="ShipKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ShipKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ShipKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[ProductKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[ProductCategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductCategoryKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductCategoryKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[ProductSubcategoryKey]"
+                      cachedDataType="i4"
+                      cachedName="ProductSubcategoryKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductSubcategoryKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[CurrencyKey]"
+                      cachedDataType="i4"
+                      cachedName="CurrencyKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[CurrencyKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[TerritoryKey]"
+                      cachedDataType="i4"
+                      cachedName="TerritoryKey"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TerritoryKey]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[SalesQty]"
+                      cachedDataType="i2"
+                      cachedName="SalesQty"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[SalesQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[SalesQty]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[UnitPrice]"
+                      cachedDataType="cy"
+                      cachedName="UnitPrice"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                    <inputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].Columns[TotalDue]"
+                      cachedDataType="cy"
+                      cachedName="TotalDue"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TotalDue]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[SaleKey]"
+                      dataType="i4"
+                      name="SaleKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ShipKey]"
+                      dataType="i4"
+                      name="ShipKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[TerritoryKey]"
+                      dataType="i4"
+                      name="TerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[SalesQty]"
+                      dataType="i4"
+                      name="SalesQty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SRC – Dimensions Table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT D.DateKey, Cs.CustomerKey, S.ShipKey, P.ProductKey, PC.ProductCategoryKey, PSC.ProductSubcategoryKey, C.CurrencyKey, T.TerritoryKey, SD.OrderQty AS SalesQty, SD.UnitPrice, SD.OrderQty * SD.UnitPrice AS TotalDue
+FROM     Sales.SalesOrderHeader AS SH LEFT OUTER JOIN
+                  Sales.SalesOrderDetail AS SD ON SH.SalesOrderID = SD.SalesOrderID LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimCustomer AS Cs ON Cs.CustomerID = SH.CustomerID LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimProduct AS P ON P.ProductID = SD.ProductID LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimProductSubCategory AS PSC ON PSC.ProductSubCategoryID = P.ProductSubCategoryID LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimTerritory AS T ON T.TerritoryID = SH.TerritoryID LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimShip AS S ON S.ShipMethodID = SH.ShipMethodID LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimDate AS D ON D.DateKey = CONVERT(INT, CONVERT(VARCHAR, SH.OrderDate, 112)) LEFT OUTER JOIN
+                  Sales.CurrencyRate AS CR ON CR.CurrencyRateID = SH.CurrencyRateID LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimCurrency AS C ON CR.ToCurrencyCode COLLATE Latin1_General_CS_AS = C.CurrencyCode COLLATE Latin1_General_CS_AS LEFT OUTER JOIN
+                  Adventureworks2019DW.dbo.DimProductCategory AS PC ON PC.ProductCategoryID = P.ProductCategoryID</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Connections[OleDbConnection]"
+                  connectionManagerID="{B5E71BB1-63CD-40FD-864B-E586EC22CBD4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[NguyenThanhDong.AdventureWorks2019]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[CustomerKey]"
+                      name="CustomerKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ShipKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ShipKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ShipKey]"
+                      name="ShipKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductKey]"
+                      name="ProductKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductSubcategoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[CurrencyKey]"
+                      name="CurrencyKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TerritoryKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[TerritoryKey]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TerritoryKey]"
+                      name="TerritoryKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[SalesQty]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[SalesQty]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[SalesQty]"
+                      name="SalesQty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                      name="UnitPrice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].Columns[TotalDue]"
+                      name="TotalDue"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[CustomerKey]"
+                      dataType="i4"
+                      name="CustomerKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ShipKey]"
+                      dataType="i4"
+                      name="ShipKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductKey]"
+                      dataType="i4"
+                      name="ProductKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductCategoryKey]"
+                      dataType="i4"
+                      name="ProductCategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      name="ProductSubcategoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[CurrencyKey]"
+                      dataType="i4"
+                      name="CurrencyKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[TerritoryKey]"
+                      dataType="i4"
+                      name="TerritoryKey" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[SalesQty]"
+                      dataType="i2"
+                      name="SalesQty" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output].ExternalColumns[TotalDue]"
+                      dataType="cy"
+                      name="TotalDue" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[CustomerKey]"
+                      name="CustomerKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ShipKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ShipKey]"
+                      name="ShipKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductKey]"
+                      name="ProductKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductCategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductCategoryKey]"
+                      name="ProductCategoryKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductSubcategoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ProductSubcategoryKey]"
+                      name="ProductSubcategoryKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[CurrencyKey]"
+                      name="CurrencyKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[TerritoryKey]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[TerritoryKey]"
+                      name="TerritoryKey" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[SalesQty]"
+                      dataType="i2"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[SalesQty]"
+                      name="SalesQty" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      dataType="cy"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[TotalDue]"
+                      name="TotalDue" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DF - Load from Dimensions to FactSale.Paths[OLE DB Source Output]"
+              endId="Package\DF - Load from Dimensions to FactSale\DST - FactSale.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Fact Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7A6A0DD8-90FD-4F58-980C-A84A8545BC1F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Fact Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{999381ED-ED90-4B26-9BF0-84AD37A7BEF0}"
+          SQLTask:SqlStatementSource="Truncate table FactSale;&#xA;Truncate table FactPurchasing;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A31DFB50-F14B-4AAE-A716-89CF95BD9192}"
+      DTS:From="Package\SQL - Truncate Fact Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DF - Load from Dimensions to FactSale" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C3CF2F21-BC4B-4753-B33A-5BD72C2F7229}"
+      DTS:From="Package\SQL - Truncate Fact Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DF - Load from Dimensions to FactPurchasing" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="293.6,41.6"
+          Id="Package\DF - Load from Dimensions to FactPurchasing"
+          TopLeft="423.571435784807,113.176472175493" />
+        <NodeLayout
+          Size="262.4,41.6"
+          Id="Package\DF - Load from Dimensions to FactSale"
+          TopLeft="41.4285721340956,108.588236817027" />
+        <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\SQL - Truncate Fact Table"
+          TopLeft="242.857146992976,32.8823534023391" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="343.657146992976,74.4823534023391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-171.02857485888,34.1058834146876"
+              Start="0,0"
+              End="-171.02857485888,26.6058834146876">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0529417073438" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.0529417073438"
+                    Point2="0,17.0529417073438"
+                    Point3="-4,17.0529417073438" />
+                  <mssgle:LineSegment
+                    End="-167.02857485888,17.0529417073438" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-167.02857485888,17.0529417073438"
+                    Point2="-171.02857485888,17.0529417073438"
+                    Point3="-171.02857485888,21.0529417073438" />
+                  <mssgle:LineSegment
+                    End="-171.02857485888,26.6058834146876" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="375.923813659642,74.4823534023391">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="194.447622125165,38.6941187731535"
+              Start="0,0"
+              End="194.447622125165,31.1941187731535">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.660454369607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.660454369607"
+                    Point2="0,15.660454369607"
+                    Point3="4,15.660454369607" />
+                  <mssgle:LineSegment
+                    End="190.447622125165,15.660454369607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="190.447622125165,15.660454369607"
+                    Point2="194.447622125165,15.660454369607"
+                    Point3="194.447622125165,19.660454369607" />
+                  <mssgle:LineSegment
+                    End="194.447622125165,31.1941187731535" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DF - Load from Dimensions to FactPurchasing">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table"
+          TopLeft="131,13" />
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing"
+          TopLeft="122.5,93.3333333333334" />
+        <EdgeLayout
+          Id="Package\DF - Load from Dimensions to FactPurchasing.Paths[OLE DB Source Output]"
+          TopLeft="227.4,54.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-15.3,38.7333333333334"
+              Start="0,0"
+              End="-15.3,31.2333333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.3666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.3666666666667"
+                    Point2="0,19.3666666666667"
+                    Point3="-4,19.3666666666667" />
+                  <mssgle:LineSegment
+                    End="-11.3,19.3666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.3,19.3666666666667"
+                    Point2="-15.3,19.3666666666667"
+                    Point3="-15.3,23.3666666666667" />
+                  <mssgle:LineSegment
+                    End="-15.3,31.2333333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Dimensions to FactPurchasing\DST - FactPurchasing">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Dimensions to FactPurchasing\SRC – Dimensions Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DF - Load from Dimensions to FactSale">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\DF - Load from Dimensions to FactSale\DST - FactSale"
+          TopLeft="113.571430505539,84.1176482385418" />
+        <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table"
+          TopLeft="87.1428586268912,9.94117661000945" />
+        <EdgeLayout
+          Id="Package\DF - Load from Dimensions to FactSale.Paths[OLE DB Source Output]"
+          TopLeft="185.357144566215,51.5411766100095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5764716285323"
+              Start="0,0"
+              End="0,25.0764716285323">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.0764716285323" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Dimensions to FactSale\DST - FactSale">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DF - Load from Dimensions to FactSale\SRC – Dimensions Table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
